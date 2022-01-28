@@ -206,7 +206,7 @@ Please see [CHANGELOG](Changelog.md) for more information what has changed recen
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
-[ico-version]: https://img.shields.io/nuget/v/Eway.Rapid.Extensions.Standard.DependencyInjection?color=blue&amp;label=Eway.Rapid.Extensions.Standard.DependencyInjection&amp;logo=Eway.Rapid.Extensions.Standard.DependencyInjection&amp;logoColor=blue
+[ico-version]: https://img.shields.io/nuget/v/Eway.Rapid.Extensions.Standard.DependencyInjection?color=blue&amp;label=Eway.Rapid.Extensions.Standard.DependencyInjection&amp;logo=Eway.Rapid.Extensions.Standard.DependencyInjection&amp
 [ico-version-1]: https://img.shields.io/nuget/v/Eway.Rapid.Standard?color=blue&amp;label=Eway.Rapid.Standard&amp;logo=Eway.Rapid.Standard&amp;logoColor=blue
 [link-nuget]: https://www.nuget.org/packages/Eway.Rapid.Extensions.Standard.DependencyInjection/
 [link-nuget-1]: https://www.nuget.org/packages/Eway.Rapid.Standard/
