@@ -3,6 +3,24 @@
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
         <PackageId>Eway.Rapid.Extensions.Standard.DependencyInjection</PackageId>
+        <Authors>eWAY</Authors>
+        <Description>
+            A .NET standard library to integrate with Eway's Rapid Payment API.
+
+            Rapid's .NET Standard implementation is broken down into three packages:
+
+            Eway.Rapid.Standard.Extensions.DependencyInjection
+            Eway.Rapid.Standard
+            Eway.Rapid.Standard.Abstractions
+
+            This package should be used when the host application is using the ASP.NET CORE framework.
+            It provides dependency injection for the RapidClient, and inherts functionality from the Eway.Rapid.Standard package.
+        </Description>
+        <RepositoryType>git</RepositoryType>
+        <PackageProjectUrl>https://eway.io/api-v3/</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/eWAYPayment/eway-rapid-netstandard</RepositoryUrl>
+        <PackageIcon>eway_32-32.png</PackageIcon>
+        <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     </PropertyGroup>
 
     <ItemGroup>
@@ -13,6 +31,17 @@
 
     <ItemGroup>
         <ProjectReference Include="..\Eway.Rapid\Eway.Rapid.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="..\..\images\eway_32-32.png">
+            <Pack>True</Pack>
+            <PackagePath></PackagePath>
+        </None>
+        <None Include="..\..\LICENSE.md">
+            <Pack>True</Pack>
+            <PackagePath></PackagePath>
+        </None>
     </ItemGroup>
 </Project>
 
