@@ -1,17 +1,45 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <PackageId>Eway.Rapid.Standard</PackageId>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <PackageId>Eway.Rapid.Standard</PackageId>
+        <Authors>eWAY</Authors>
+        <Description>
+            A .NET standard library to integrate with Eway's Rapid Payment API.
 
-  <ItemGroup>
-    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
-    <PackageReference Include="System.Net.Http.Json" Version="5.0.0" />
-  </ItemGroup>
+            Rapid's .NET Standard implementation is broken down into three packages:
 
-  <ItemGroup>
-    <ProjectReference Include="..\Eway.Rapid.Abstractions\Eway.Rapid.Abstractions.csproj" />
-  </ItemGroup>
+            Eway.Rapid.Standard.Extensions.DependencyInjection
+            Eway.Rapid.Standard
+            Eway.Rapid.Standard.Abstractions
+
+            This package should be used when the host application is not using the ASP.NET CORE framework, or a custom DI framework is preferred (or DI is not used in the application). It provides a implementation for the HTTP Client, and handles API calls on your behalf. The package inherits functionality from the Eway.Rapid.Standard.Abstractions package.
+        </Description>
+        <RepositoryType>git</RepositoryType>
+        <PackageProjectUrl>https://eway.io/api-v3/</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/eWAYPayment/eway-rapid-netstandard</RepositoryUrl>
+        <PackageIcon>eway_32-32.png</PackageIcon>
+        <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
+        <PackageReference Include="System.Net.Http.Json" Version="5.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Eway.Rapid.Abstractions\Eway.Rapid.Abstractions.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="..\..\images\eway_32-32.png">
+            <Pack>True</Pack>
+            <PackagePath></PackagePath>
+        </None>
+        <None Include="..\..\LICENSE.md">
+            <Pack>True</Pack>
+            <PackagePath></PackagePath>
+        </None>
+    </ItemGroup>
 
 </Project>

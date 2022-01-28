@@ -1,13 +1,41 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <PackageId>Eway.Rapid.Standard.Abstractions</PackageId>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <PackageId>Eway.Rapid.Standard.Abstractions</PackageId>
+        <Authors>eWAY</Authors>
+        <Description>
+            A .NET standard library to integrate with Eway's Rapid Payment API.
 
-  <ItemGroup>
-    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
-    <PackageReference Include="System.Text.Json" Version="5.0.2" />
-  </ItemGroup>
+            Rapid's .NET Standard implementation is broken down into three packages:
+
+            Eway.Rapid.Standard.Extensions.DependencyInjection
+            Eway.Rapid.Standard
+            Eway.Rapid.Standard.Abstractions
+
+            This package should be used when you want full control of the Http Client, and API calls; but would like to use the pre-defined interface and protocol. The package contains data contracts, models, and Rapid endpoints. Here you may create your own custom HTTP client, and handle API calls in a custom manner.
+        </Description>
+        <RepositoryType>git</RepositoryType>
+        <PackageProjectUrl>https://eway.io/api-v3/</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/eWAYPayment/eway-rapid-netstandard</RepositoryUrl>
+        <PackageIcon>eway_32-32.png</PackageIcon>
+        <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
+        <PackageReference Include="System.Text.Json" Version="5.0.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="..\..\images\eway_32-32.png">
+            <Pack>True</Pack>
+            <PackagePath></PackagePath>
+        </None>
+        <None Include="..\..\LICENSE.md">
+            <Pack>True</Pack>
+            <PackagePath></PackagePath>
+        </None>
+    </ItemGroup>
 
 </Project>
