@@ -76,7 +76,6 @@ OR
 ```
 > dotnet add package Eway.Rapid.Standard
 ```
-
 ## Usage
 
 See [Eway's Rapid API Reference](https://eway.io/api-v3/) for more details.
