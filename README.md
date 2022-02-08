@@ -1,4 +1,4 @@
-# Eway Rapid .NET Standard Library
+# Eway Rapid .NET Standard Library 
 
 [![Latest version on NuGet][ico-version-3]](LICENSE.md)
 
