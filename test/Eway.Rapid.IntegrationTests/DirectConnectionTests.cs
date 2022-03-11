@@ -323,6 +323,8 @@ namespace Eway.Rapid.IntegrationTests
             tokenExpired = dateTime.CompareTo(new DateTime().ToLocalTime()) < 0;
             #endregion
 
+            //The GPay token has expired time, so when it is fresh, we can get "A2000" success code.
+            //But when it is expired, it will return "S5017" token expired.
             if (tokenExpired)
             {
                 Assert.Equal("S5017", response.ResponseMessage);
