@@ -288,5 +288,51 @@ namespace Eway.Rapid.IntegrationTests
             Assert.Equal("System Error", response.CodeDetails.First().DisplayMessage);
             Assert.Equal("S5000", response.CodeDetails.First().ErrorCode);
         }
+
+        [Fact]
+        public async Task GooglePay_Test()
+        {
+            var directPaymentRequest = new DirectPaymentRequest
+            {
+                PaymentInstrument = new RequestPaymentInstrument
+                {
+                    PaymentType = PaymentType.GooglePay,
+                    WalletDetails = new RequestWalletDetails
+                    {
+                        Token = "{\"signature\":\"MEUCIHjdwrZdrXgfel3OFl2GnETQ7yQORsdutJuiP6GSigZLAiEAkmrfsNGLGowlt1QvLWfzQNcV+4TqfdE3vWOFvGSxHoQ\\u003d\",\"intermediateSigningKey\":{\"signedKey\":\"{\\\"keyValue\\\":\\\"MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEx2HNhoen80N2qVEOw4J3jvd5Lqf3FUsKbqbIMCiJgHmLKozjttS6Q/LtpWAJf9LWwB3ixKRuxxMoO9ZSQSgYYQ\\\\u003d\\\\u003d\\\",\\\"keyExpiration\\\":\\\"1647558073239\\\"}\",\"signatures\":[\"MEYCIQDL6p1RyXBduF9t77I3A7clkVOT1KVF5FY4Sp9iZo2C4gIhAN0Buvk90x+3pu+ahS4komS7EHkz8rxKcPuHdetyBfX8\"]},\"protocolVersion\":\"ECv2\",\"signedMessage\":\"{\\\"encryptedMessage\\\":\\\"TWdjcpy37hwaoEAPHFLwbqqhzEngoWSBPvEKmP5TlyNYCj2+LYlE5OO7ZE6Ro01HejFjvkoxb1VPmXJ1v+1NZtF9oH46IH/eA/siaAGddoVcYzTKmWpmNFqjsbHf7NzK3lmj10Kbufx96nNx7H1qcsYkn5w3yjvjc6WRTCLjr+wL0h0pjLB6Sk2ltePckpDmcnaqPfNlVJeBuvibSNVf6wT1/kVRbi+Jgf/hTrDFa5lEEw0b91mNU8ISVytUv9vEzoBrDa/LplcIIKh6RxoJeXxtQ7RGawlwe/Qof/C+2lLvqB8p++j+MnT0k0UIs9Wm7gBiDWT2D/tP0GGyIBZzlwD0uhwgN1mVGIM1JbgDKLH7IpbcUZl35+e9AAffW6DiwtbHh/xLXcUFeEvAjuItTGR0Af33VsP7DoJAyezVhhy8yetaS+sbnP2SfnoNTGiS4/ZSlLZIpE+qHMrlBbqiTWtbkr07vmk1FplRLTd+aKxEHt+APGm97KfwIpnCJhtSIbXGKfSwLkILrmNSBjTiuMuWlZpy1vV4FPU4JXpB8xo1EuLttKPIE3YHUce/Mm2SwiAUnDnf3SE7hv7aFcL3\\\",\\\"ephemeralPublicKey\\\":\\\"BPqlKyic3St8xBdeutw8zX9zrxNGh9HQ+OpBbHvQ0A+zIk8xu7jDZkmQmZhr3oNVk2yZFHQ88S7pI1NENMYH5hE\\\\u003d\\\",\\\"tag\\\":\\\"RpQmcC9EOwIc8CUNPNKToErYRxFPx9Hf/xHwHqpm9Jg\\\\u003d\\\"}\"}"
+                    }
+                },
+                Payment = new Payment
+                {
+                    TotalAmount = 1,
+                    CurrencyCode = "AUD"
+                },
+                Capture = true,
+                TransactionType = TransactionTypes.Purchase
+            };
+            var response = await _rapidClient.CreateTransaction(directPaymentRequest);
+
+            Assert.NotNull(response);
+            Assert.NotNull(response.ResponseCode);
+
+            DateTime dateTime;
+            bool tokenExpired = false;
+
+            #region Expired date calculate and compare
+            dateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc).AddMilliseconds(1647584174259L).ToLocalTime();
+            tokenExpired = dateTime.CompareTo(new DateTime().ToLocalTime()) < 0;
+            #endregion
+
+            if (tokenExpired)
+            {
+                Assert.Equal("S5017", response.ResponseMessage);
+            }
+            else
+            {
+                Assert.Null(response.Errors);
+                Assert.Equal("A2000", response.ResponseMessage);
+            }
+
+        }
     }
 }
