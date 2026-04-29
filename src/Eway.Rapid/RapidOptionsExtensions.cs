@@ -22,6 +22,10 @@ namespace Eway.Rapid
 
             var version = new ProductInfoHeaderValue("EwayNetStandardSDK", Assembly.GetAssembly(typeof(RapidOptionsExtensions)).GetName().Version.ToString());
             httpClient.DefaultRequestHeaders.UserAgent.Add(version);
+            if (options.ApiVersion.HasValue)
+            {
+                httpClient.DefaultRequestHeaders.Add(RapidEndpoints.API_VERSION_HEADER, options.ApiVersion.Value.ToString());
+            }
             httpClient.BaseAddress = options.CreateUri();
             httpClient.DefaultRequestHeaders.Authorization = options.CreateBasicAuthHeader();
         }

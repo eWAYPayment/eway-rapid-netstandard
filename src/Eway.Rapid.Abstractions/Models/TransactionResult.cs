@@ -11,7 +11,7 @@ namespace Eway.Rapid.Abstractions.Models
             BeagleVerification = new BeagleVerifyResult();
             Options = new List<Option>();
             ShippingAddress = new ShippingAddress();
-            Customer = new Customer();
+            Customer = new DirectTokenCustomer();
             Items = new List<LineItem>();
         }
 
@@ -23,7 +23,7 @@ namespace Eway.Rapid.Abstractions.Models
         public PaymentSource Source { get; set; }
         public int? MaxRefund { get; set; }
         public string OriginalTransactionId { get; set; }
-        public Customer Customer { get; set; }
+        public DirectTokenCustomer Customer { get; set; }
         public string AuthorisationCode { get; set; }
         public string ResponseCode { get; set; }
         public string ResponseMessage { get; set; }

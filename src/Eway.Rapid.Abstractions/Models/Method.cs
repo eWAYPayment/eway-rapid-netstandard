@@ -7,7 +7,11 @@
     public enum Method
     {
         ProcessPayment = 1,
-        TokenPayment = 4,
-        Authorise = 6
+        CreateTokenCustomer,
+        UpdateTokenCustomer,
+        TokenPayment,
+        Refund,
+        Authorise,
+        Scheduled
     }
 }

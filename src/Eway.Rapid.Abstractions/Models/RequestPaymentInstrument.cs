@@ -13,37 +13,14 @@ namespace Eway.Rapid.Abstractions.Models
         public PaymentType PaymentType { get; set; }
 
         /// <summary>
-        /// Gets or Sets CardDetails
-        /// </summary>
-        public RequestCardDetails CardDetails { get; set; }
-
-
-        /// <summary>
         /// WalletDetails details.
         /// </summary>
         public RequestWalletDetails WalletDetails { get; set; }
 
         /// <summary>
-        /// JSON string in the format of the cardDetails object encrypted using the customer&#39;s public key.
+        /// ThreeDSecureAuth details
         /// </summary>
-        /// <value>JSON string in the format of the cardDetails object encrypted using the customer&#39;s public key.</value>
-        public string EncryptedCardDetails { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ExternalTransactionDetails
-        /// </summary>
-        public BaseExternalDetails ExternalTransactionDetails { get; set; }
-
-
-        /// <summary>
-        /// Gets or Sets BankAccountDetails
-        /// </summary>
-        public RequestBankAccountDetails BankAccountDetails { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Metadata
-        /// </summary>
-        public Metadata Metadata { get; set; }
+        public Direct3DSecureAuth ThreeDSecureAuth { get; set; }
 
     }
 }

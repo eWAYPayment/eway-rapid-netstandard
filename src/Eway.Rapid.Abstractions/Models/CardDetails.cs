@@ -2,6 +2,7 @@
 {
     public class CardDetails
     {
+        public string CardType { get; set; }
         public virtual string Number { get; set; }
         public string Name { get; set; }
         public string ExpiryMonth { get; set; }

@@ -16,5 +16,10 @@
 
         /// <summary>The merchant's currency</summary>
         public virtual string CurrencyCode { get; set; }
+
+        /// <summary>
+        /// Transaction Type
+        /// </summary>
+        public virtual string TransactionType { get; set; }
     }
 }
