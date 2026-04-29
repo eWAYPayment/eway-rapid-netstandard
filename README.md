@@ -92,7 +92,8 @@ Required nuget package: **Eway.Rapid.Standard.Extensions.DependencyInjection**.
     {
         "RapidEndPoint": "Sandbox",
         "ApiKey": "Rapid API Key",
-        "Password": "Rapid API Password"
+        "Password": "Rapid API Password",
+        "ApiVersion": 47
     }
 }
 ```
@@ -149,7 +150,8 @@ namespace ConsoleApp1
             {
                 ApiKey = "Rapid API KEY",
                 Password = "Rapid API Password",
-                RapidEndPoint = RapidEndpoints.SANDBOX
+                RapidEndPoint = RapidEndpoints.SANDBOX,
+                ApiVersion = 47
             };
             rapidOptions.ConfigureHttpClient(httpClient);
             IRapidClient rapidClient = new RapidClient(httpClient);

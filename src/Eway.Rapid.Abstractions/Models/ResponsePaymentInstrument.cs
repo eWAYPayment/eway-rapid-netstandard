@@ -1,4 +1,5 @@
-﻿using Eway.Rapid.Abstractions.Models;
+﻿using System;
+using Eway.Rapid.Abstractions.Models;
 
 namespace Eway.Rapid.Abstractions.Response
 {
@@ -16,5 +17,17 @@ namespace Eway.Rapid.Abstractions.Response
         /// The payment method used for the transaction
         /// </summary>
         public string PaymentType { get; set; }
+
+        [Obsolete("This property is deprecated.")]
+        public ResponseCardDetails CardDetails { get; set; }
+
+        [Obsolete("This property is deprecated.")]
+        public ResponseExternalTransactionDetails ExternalTransactionDetails { get; set; }
+
+        [Obsolete("This property is deprecated.")]
+        public ResponseBankAccountDetails BankAccountDetails { get; set; }
+
+        [Obsolete("This property is deprecated.")]
+        public Metadata Metadata { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Text.Json.Serialization;
+﻿using System;
+using System.Text.Json.Serialization;
 
 namespace Eway.Rapid.Abstractions.Models
 {
@@ -12,6 +13,9 @@ namespace Eway.Rapid.Abstractions.Models
         /// </summary>
         public PaymentType PaymentType { get; set; }
 
+        [Obsolete("This property is deprecated.")]
+        public RequestCardDetails CardDetails { get; set; }
+
         /// <summary>
         /// WalletDetails details.
         /// </summary>
@@ -21,6 +25,18 @@ namespace Eway.Rapid.Abstractions.Models
         /// ThreeDSecureAuth details
         /// </summary>
         public Direct3DSecureAuth ThreeDSecureAuth { get; set; }
+
+        [Obsolete("This property is deprecated.")]
+        public string EncryptedCardDetails { get; set; }
+
+        [Obsolete("This property is deprecated.")]
+        public BaseExternalDetails ExternalTransactionDetails { get; set; }
+
+        [Obsolete("This property is deprecated.")]
+        public RequestBankAccountDetails BankAccountDetails { get; set; }
+
+        [Obsolete("This property is deprecated.")]
+        public Metadata Metadata { get; set; }
 
     }
 }
