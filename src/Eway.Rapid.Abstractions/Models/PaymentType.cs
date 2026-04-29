@@ -1,18 +1,25 @@
 ﻿namespace Eway.Rapid.Abstractions.Models
 {
+    /// <summary>
+    /// The Payment type merchant use for the request.
+    /// The corresponding payment detail to this PaymentType must be provided.
+    ///   CreditCard  -->  CardDetails
+    ///   CardPresence --> PosDetails
+    ///   PayPal --> Customer.GlobalPayerId  must be Paypal token customer Id  
+    ///   ClickToPay --> WalletDetails.Id
+    ///   SecurePay  --> WalletDetails.Token
+    ///   ApplePay  --> WalletDetails.Token
+    ///   GooglePay --> WalletDetails.Token
+    /// </summary>
     public enum PaymentType
     {
-        None = 0,
-        CreditCard = 1,
-        PayPal = 2,
-        MasterPass = 4,
-        VisaCheckout = 8,
-        AmexExpressCheckout = 16,
-        ApplePay = 32,
-        DirectDebit = 64,
-        UnionPay = 128,
-        GooglePay = 256,
-        ClickToPay = 512,
-        SecurePay = 1024
+        None,  //Allow None for tokenpayment
+        CreditCard,
+        CardPresence,
+        PayPal,
+        ClickToPay,   //SRC
+        ApplePay,
+        GooglePay,
+        SecurePay,    // This is the encryptedCardDetails or OneTimeCode payment which will be merged to Wallet as discussion.
     }
 }
