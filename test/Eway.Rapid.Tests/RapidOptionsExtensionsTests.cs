@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using Xunit;
 
@@ -21,7 +22,7 @@ namespace Eway.Rapid.Tests
 
 
         [Fact]
-        public void ConfigureHttpClient_UpdateHttpClient()
+        public void ConfigureHttpClient_UpdateHttpClient_Without_ApiVersionSpecified()
         {
             //arrange
             var options = new RapidOptions()
@@ -39,6 +40,30 @@ namespace Eway.Rapid.Tests
             Assert.Equal("https://api.ewaypayments.com/", httpClient.BaseAddress?.AbsoluteUri);
             Assert.Equal("Basic YXBpa2V5OnBhc3N3b3Jk", httpClient.DefaultRequestHeaders.Authorization?.ToString());
             Assert.Matches(@"EwayNetStandardSDK/[\d\.]+", httpClient.DefaultRequestHeaders.UserAgent?.ToString());
+            Assert.False(httpClient.DefaultRequestHeaders.Contains(RapidEndpoints.API_VERSION_HEADER));
+        }
+
+        [Fact]
+        public void ConfigureHttpClient_UpdateHttpClient_With_ApiVersionSpecified()
+        {
+            //arrange
+            var options = new RapidOptions()
+            {
+                ApiKey = "apikey",
+                Password = "password",
+                RapidEndPoint = "Production",
+                ApiVersion = 47
+            };
+            var httpClient = new HttpClient();
+
+            //act
+            options.ConfigureHttpClient(httpClient);
+
+            //assert
+            Assert.Equal("https://api.ewaypayments.com/", httpClient.BaseAddress?.AbsoluteUri);
+            Assert.Equal("Basic YXBpa2V5OnBhc3N3b3Jk", httpClient.DefaultRequestHeaders.Authorization?.ToString());
+            Assert.Matches(@"EwayNetStandardSDK/[\d\.]+", httpClient.DefaultRequestHeaders.UserAgent?.ToString());
+            Assert.Equal(options.ApiVersion.ToString(), httpClient.DefaultRequestHeaders.GetValues(RapidEndpoints.API_VERSION_HEADER).FirstOrDefault());
         }
 
         [Theory]
