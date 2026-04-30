@@ -119,7 +119,7 @@ namespace Eway.Rapid.IntegrationTests
             request.Customer.CardDetails = new CardDetails()
             {
                 ExpiryMonth = "12",
-                ExpiryYear = "25"
+                ExpiryYear = "30"
             };
             return request;
         }
@@ -154,7 +154,7 @@ namespace Eway.Rapid.IntegrationTests
                     Name = "John Smith",
                     Number = "4444333322221111",
                     ExpiryMonth = "12",
-                    ExpiryYear = "25",
+                    ExpiryYear = "30",
                     CVN = "123"
                 },
                 Street1 = "Level 5",
