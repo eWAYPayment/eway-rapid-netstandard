@@ -1,9 +1,9 @@
-﻿using System.Text.Json.Serialization;
+﻿using System;
 
 namespace Eway.Rapid.Abstractions.Models
 {
     /// <summary>
-    /// Defines the instrument that can provide/document a source of funds for a past or future transaction. Only one of the top level properties (e.g. cardDetails) must be supplied. Likewise, the API will only echo back supplied properties. Others may be omitted. When the method &#x3D; &#39;Scheduled&#39; then either &#39;Bank Account Details&#39; or &#39;Credit Card detail&#39;s must be provided (not both).
+    /// Represents a payment instrument request containing details for various supported payment methods.
     /// </summary>
     public class RequestPaymentInstrument
     {
@@ -12,11 +12,8 @@ namespace Eway.Rapid.Abstractions.Models
         /// </summary>
         public PaymentType PaymentType { get; set; }
 
-        /// <summary>
-        /// Gets or Sets CardDetails
-        /// </summary>
+        [Obsolete("This property is deprecated.")]
         public RequestCardDetails CardDetails { get; set; }
-
 
         /// <summary>
         /// WalletDetails details.
@@ -24,25 +21,20 @@ namespace Eway.Rapid.Abstractions.Models
         public RequestWalletDetails WalletDetails { get; set; }
 
         /// <summary>
-        /// JSON string in the format of the cardDetails object encrypted using the customer&#39;s public key.
+        /// ThreeDSecureAuth details
         /// </summary>
-        /// <value>JSON string in the format of the cardDetails object encrypted using the customer&#39;s public key.</value>
+        public Direct3DSecureAuth ThreeDSecureAuth { get; set; }
+
+        [Obsolete("This property is deprecated.")]
         public string EncryptedCardDetails { get; set; }
 
-        /// <summary>
-        /// Gets or Sets ExternalTransactionDetails
-        /// </summary>
+        [Obsolete("This property is deprecated.")]
         public BaseExternalDetails ExternalTransactionDetails { get; set; }
 
-
-        /// <summary>
-        /// Gets or Sets BankAccountDetails
-        /// </summary>
+        [Obsolete("This property is deprecated.")]
         public RequestBankAccountDetails BankAccountDetails { get; set; }
 
-        /// <summary>
-        /// Gets or Sets Metadata
-        /// </summary>
+        [Obsolete("This property is deprecated.")]
         public Metadata Metadata { get; set; }
 
     }

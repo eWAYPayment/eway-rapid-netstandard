@@ -1,32 +1,33 @@
-﻿using System.Text.Json.Serialization;
+﻿using System;
 using Eway.Rapid.Abstractions.Models;
 
 namespace Eway.Rapid.Abstractions.Response
 {
     /// <summary>
-    /// Defines the instrument that can provide/document a source of funds for a past or future transaction. Only one of the top level properties (e.g. cardDetails) must be supplied. Likewise, the API will only echo back supplied properties. Others will be omitted.
+    /// The details of the payment instrument used for the transaction.
     /// </summary>
     public class ResponsePaymentInstrument
     {
         /// <summary>
-        /// Gets or Sets CardDetails
+        /// This set of fields contains the 3D Secure verification results
         /// </summary>
+        public Direct3DSecureAuth ThreeDSecureAuth { get; set; }
+
+        /// <summary>
+        /// The payment method used for the transaction
+        /// </summary>
+        public string PaymentType { get; set; }
+
+        [Obsolete("This property is deprecated.")]
         public ResponseCardDetails CardDetails { get; set; }
 
-        /// <summary>
-        /// Gets or Sets ExternalTransactionDetails
-        /// </summary>
+        [Obsolete("This property is deprecated.")]
         public ResponseExternalTransactionDetails ExternalTransactionDetails { get; set; }
 
-        /// <summary>
-        /// Gets or Sets BankAccountDetails
-        /// </summary>
+        [Obsolete("This property is deprecated.")]
         public ResponseBankAccountDetails BankAccountDetails { get; set; }
 
-        /// <summary>
-        /// Gets or Sets Metadata
-        /// </summary>
+        [Obsolete("This property is deprecated.")]
         public Metadata Metadata { get; set; }
-
     }
 }

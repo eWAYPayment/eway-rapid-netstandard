@@ -15,6 +15,16 @@ namespace Eway.Rapid.IntegrationTests.Utils
             Assert.Equal(responseCustomer.Street2, requestCustomer.Street2);
         }
 
+        internal static void Assert_ThreeDSecureAuth(Direct3DSecureAuth request3DSecureAuth, Direct3DSecureAuth response3DSecureAuth)
+        {
+            Assert.Equal(response3DSecureAuth.Cryptogram, request3DSecureAuth.Cryptogram);
+            Assert.Equal(response3DSecureAuth.ECI, request3DSecureAuth.ECI);
+            Assert.Equal(response3DSecureAuth.XID, request3DSecureAuth.XID);
+            Assert.Equal(response3DSecureAuth.AuthStatus, request3DSecureAuth.AuthStatus);
+            Assert.Equal(response3DSecureAuth.dsTransactionId, request3DSecureAuth.dsTransactionId);
+            Assert.Equal(response3DSecureAuth.Version, request3DSecureAuth.Version);
+        }
+
         internal static void Assert_VerifyCustomerAllFields(Customer requestCustomer, Customer responseCustomer)
         {
             Assert.Equal(responseCustomer.Comments, requestCustomer.Comments);

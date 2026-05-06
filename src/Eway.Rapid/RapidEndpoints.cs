@@ -18,5 +18,9 @@
         /// Sandbox Endpoints.
         /// </summary>
         public const string SANDBOX = "https://api.sandbox.ewaypayments.com/";
+        /// <summary>
+        /// Api Version Header Name.
+        /// </summary>
+        public const string API_VERSION_HEADER = "X-EWAY-APIVERSION";
     }
 }

@@ -21,6 +21,18 @@ namespace Eway.Rapid.IntegrationTests
                     PostalCode = "2000"
                 },
                 Items = CreateLineItems(),
+                PaymentInstrument = new RequestPaymentInstrument
+                {
+                    ThreeDSecureAuth = new Direct3DSecureAuth
+                    {
+                        Cryptogram = "AgAAAAAA4n1uzQPRaATeQAAAAAA=",
+                        ECI = "05",
+                        XID = "AAAAAAAA4n1uzQPRaATeQAAAAAA=",
+                        AuthStatus = "Y",
+                        dsTransactionId = "AAAAAAAA4n1uzQPRaATeQAAAAAAqqqqqqqq=",
+                        Version = "2.1.0"
+                    }
+                },
                 Options = new List<Option>
                 {
                     new Option{ Value = "Option1" },
@@ -119,7 +131,7 @@ namespace Eway.Rapid.IntegrationTests
             request.Customer.CardDetails = new CardDetails()
             {
                 ExpiryMonth = "12",
-                ExpiryYear = "25"
+                ExpiryYear = "30"
             };
             return request;
         }
@@ -154,7 +166,7 @@ namespace Eway.Rapid.IntegrationTests
                     Name = "John Smith",
                     Number = "4444333322221111",
                     ExpiryMonth = "12",
-                    ExpiryYear = "25",
+                    ExpiryYear = "30",
                     CVN = "123"
                 },
                 Street1 = "Level 5",
