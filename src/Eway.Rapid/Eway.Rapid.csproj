@@ -20,6 +20,7 @@
         <RepositoryUrl>https://github.com/eWAYPayment/eway-rapid-netstandard</RepositoryUrl>
         <PackageIcon>eway_32-32.png</PackageIcon>
         <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+        <AssemblyVersion>2.0.0.0</AssemblyVersion>
     </PropertyGroup>
 
     <ItemGroup>
