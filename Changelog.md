@@ -2,7 +2,7 @@
 
 ## 2.0.0
 
-- Add ApiVersion filed in RapidOptions class
+- Add ApiVersion in RapidOptions class
 - Add ThreeDSecureAuth in RequestPaymentInstrument class
 - Add ThreeDSecureAuth & PaymentType in ResponsePaymentInstrument class
 - Add CardDetails under Customer section for transaction query API's response
