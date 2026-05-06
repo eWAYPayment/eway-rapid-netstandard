@@ -14,7 +14,6 @@ Sign up for an Eway merchant account at:
 | Australia | https://www.eway.com.au/ |
 | New Zealand | https://eway.io/nz/ |
 | Hong Kong | https://eway.io/hk/ |
-| Malaysia | https://eway.io/my/ |
 | Singapore | https://eway.io/sg/ |
 
 > **Sandbox testing:** Get a free Eway Partner sandbox account at https://www.eway.com.au/developers
